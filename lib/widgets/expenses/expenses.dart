@@ -1,5 +1,6 @@
-import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
+import 'package:expense_tracker/widgets/expenses/expenses_list.dart';
 import 'package:expense_tracker/model/expense.dart';
+import 'package:expense_tracker/widgets/expenses/new_expense_form.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -21,11 +22,20 @@ class _ExpensesState extends State<Expenses> {
     ),
     Expense(
       title: "Cinema",
-      amount: 15.99,
+      amount: 15.39,
       date: DateTime.now(),
       category: Category.leisure,
     ),
   ];
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return const NewExpenseForm();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +44,7 @@ class _ExpensesState extends State<Expenses> {
         title: const Text("Flutter Expense Tracker"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
           ),
         ],
