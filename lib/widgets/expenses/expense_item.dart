@@ -27,10 +27,7 @@ class ExpenseItem extends StatelessWidget {
                 Row(
                   children: [
                     Icon(categoryIcons[expense.category]),
-                    Text(
-                      expense.date.toString(),
-                    ),
-                    // Text(expense.formattedDate),
+                    Text(expense.formattedDate),
                   ],
                 ),
               ],
