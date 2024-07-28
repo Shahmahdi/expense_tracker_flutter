@@ -74,6 +74,7 @@ class _NewExpenseFormState extends State<NewExpenseForm> {
         category: _selectedCategory!,
       ),
     );
+    Navigator.pop(context);
   }
 
   @override
